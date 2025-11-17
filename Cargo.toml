@@ -1,0 +1,17 @@
+[workspace]
+resolver = "2"
+members = [
+    "eon_cli",
+    "eon_core",
+    "modules/*/rust_project",
+    "utils",
+]
+
+[workspace.dependencies]
+eon_core = { path = "eon_core" }
+utils = { path = "utils" }
+
+[profile.release]
+lto = true
+strip = true
+panic = 'abort'

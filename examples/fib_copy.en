@@ -1,0 +1,16 @@
+
+fn fib(n) {
+  var x = 0
+  var y = 1
+  while n > 0 {
+    let tmp = x
+    x = y
+    y = tmp + y
+    n = n - 1
+  }
+  x
+}
+
+for i in range(32) {
+  println(i & ": " & fib(i))
+}

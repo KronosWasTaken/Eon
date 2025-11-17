@@ -1,0 +1,26 @@
+// File I/O via os module + option<T> handling
+use os
+
+fn main() {
+  let src = "examples/fib.en"
+  let dest = "examples/fib_copy.en"
+
+  if fexists(src) {
+    match fread(src) {
+      .some(contents) -> {
+        fwrite(dest, contents)
+        println("Copied '" & src & "' -> '" & dest & "'")
+        // Verify copy by attempting to read it back
+        match fread(dest) {
+          .some(_) -> println("Verified: dest file is readable"),
+          .none -> println("Failed to read dest file: " & dest)
+        }
+      },
+      .none -> println("Failed to read src file: " & src)
+    }
+  } else {
+    println("Source not found: " & src)
+  }
+}
+
+main()

@@ -1,0 +1,25 @@
+// Using modules: random and time to do a simple 1D random walk
+use random
+use time
+
+// Use foreign functions directly from modules (requires --modules and --shared-objects CLI flags)
+
+fn random_step() {
+  // step is -1 or +1
+  let r = random_int(0, 2)
+  match r { 0 -> 0 - 1, _ -> 1 }
+}
+
+fn main() {
+  var pos = 0
+  let steps = 50
+  let delay = 0.03 // seconds
+
+  for i in range(steps) {
+    pos = pos + random_step()
+    println("step " & int_to_string(i) & ": pos=" & int_to_string(pos))
+    sleep(delay)
+  }
+}
+
+main()

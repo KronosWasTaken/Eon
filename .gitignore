@@ -1,0 +1,30 @@
+# Rust/Cargo
+/target/
+/debug/
+**/*.rs.bk
+
+# Build artifacts
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+/tmp/
+/temp/
+
+# IDE/editor
+/.idea/
+/.vscode/
+*.code-workspace
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Cargo vendor + config (if used locally only)
+/vendor/
+/.cargo/
+
+# Generated files (adjust as needed)
+/host_funcs.rs
+/eon_cli/src/host_funcs.rs

@@ -1,0 +1,26 @@
+// Pattern matching with an algebraic data type
+
+// A small binary tree of ints
+// Tree = leaf(value) | node(left, right)
+type Tree =
+  | leaf(int)
+  | node(Tree, Tree)
+
+fn sum(t: Tree) {
+  match t {
+    .leaf(n) -> n,
+    .node(l, r) -> sum(l) + sum(r)
+  }
+}
+
+fn size(t: Tree) {
+  match t {
+    .leaf(_) -> 1,
+    .node(l, r) -> 1 + size(l) + size(r)
+  }
+}
+
+// Build a sample tree and print properties
+let t: Tree = .node(.leaf(1), .node(.leaf(2), .leaf(3)))
+println("tree size: " & size(t))
+println("tree sum:  " & sum(t))

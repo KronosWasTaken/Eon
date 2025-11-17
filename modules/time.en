@@ -1,0 +1,3 @@
+foreign fn get_time() -> float
+
+foreign fn sleep(seconds: float) -> void
